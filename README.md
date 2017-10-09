@@ -25,6 +25,18 @@ Getting Started-
 
 4. Implement ToroPlayer in your ViewHolder of your VideoItem.
 
+5. Implement following methods-
+      (i)   getPlayerView() - Returns instance of SimpleExoplayerView
+      (ii)  getCurrentPlaybackInfo() - Returns playback info of current player.
+      (iii) initialize(Container container,PlaybackInfo playbackInfo) - Initialize player info with container.
+      (iv)  play() - Play video.
+      (v)   pause() - Pause video.
+      (vi)  isPlaying()- Returns true if video is playing.
+      (vii) release() - Release player.
+      (viii) wantsToPlay()- Returns the offset of visible area of playing video.
+      (ix)  getPlayerOrder()- order of playing videos in list.
+      (x)   onContainerScrollStateChange(Container container, int newState)- calls when scrolling state changed.
+
   class ViewHolderVideo extends RecyclerView.ViewHolder implements ToroPlayer {
 
         @BindView(R.id.simpleexoplayer)
