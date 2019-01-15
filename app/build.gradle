@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion compileSdk
     defaultConfig {
         applicationId "com.autoplayvideo"
-        minSdkVersion 16
-        targetSdkVersion 22
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,18 +19,28 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.jakewharton:butterknife:8.8.1'
+    testImplementation 'junit:junit:4.12'
+
+    configurations.all {exclude group: 'com.android.support', module: 'support-v4'}
+
+    implementation "com.android.support:appcompat-v7:${support_lib}"
+    implementation "com.android.support:design:${support_lib}"
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    compile 'jp.wasabeef:glide-transformations:2.0.1'
-    compile 'com.google.android.exoplayer:exoplayer-core:r2.4.4'
-    compile("com.google.android.exoplayer:exoplayer-ui:r2.4.4") {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    compile project(path: ':toro-core')
+
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+
+    implementation "com.google.android.exoplayer:exoplayer-core:${exo_player_lib}"
+    implementation "com.google.android.exoplayer:exoplayer-ui:${exo_player_lib}"
+
+    implementation "im.ene.toro3:toro:${toro_lib}"
+    implementation "im.ene.toro3:toro-ext-exoplayer:${toro_lib}"
+
+    implementation 'com.faendir:acra:4.10.0'
+
 }
