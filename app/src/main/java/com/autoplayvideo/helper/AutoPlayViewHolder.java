@@ -120,8 +120,9 @@ public abstract class AutoPlayViewHolder extends RecyclerView.ViewHolder impleme
     }
 
 
-    public void setMute(boolean mute) {
-        isMute = mute;
+    @CallSuper
+    public void setMute(boolean isMute) {
+        this.isMute = isMute;
     }
 
 

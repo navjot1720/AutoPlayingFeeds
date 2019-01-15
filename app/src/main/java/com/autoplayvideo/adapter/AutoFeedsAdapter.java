@@ -253,6 +253,16 @@ public class AutoFeedsAdapter extends RecyclerView.Adapter<AutoFeedsAdapter.Auto
 
 
         @Override
+        public void setMute(boolean isMute) {
+            super.setMute(isMute);
+            // update mute status in adapter
+            if (viewPager != null && viewPager.getAdapter() != null && viewPager.getAdapter() instanceof MultipleMediaPagerAdapter) {
+                MultipleMediaPagerAdapter adapter = (MultipleMediaPagerAdapter) viewPager.getAdapter();
+                adapter.setMute(isMute);
+            }
+        }
+
+        @Override
         public void onPageSelected(int position) {
             super.onPageSelected(position);
             setMute(isMute);

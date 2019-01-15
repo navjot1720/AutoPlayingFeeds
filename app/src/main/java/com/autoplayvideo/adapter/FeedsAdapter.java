@@ -269,8 +269,19 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedsViewHol
 
         }
 
+
+        public void setMute(boolean isMute) {
+            // update mute status in adapter
+            if (viewPager != null && viewPager.getAdapter() != null && viewPager.getAdapter() instanceof MultipleMediaPagerAdapter) {
+                MultipleMediaPagerAdapter adapter = (MultipleMediaPagerAdapter) viewPager.getAdapter();
+                adapter.setMute(isMute);
+            }
+        }
+
+
         @Override
         public void onPageSelected(int position) {
+            setMute(isMute);
             if (mPostList.get(getAdapterPosition()) != null) {
                 FeedsModel feedsEntity = mPostList.get(getAdapterPosition());
 
@@ -386,6 +397,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedsViewHol
                     }
                 }
             }
+            setMute(isMute);
         }
 
         @Override
