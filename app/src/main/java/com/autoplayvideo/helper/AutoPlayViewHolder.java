@@ -39,6 +39,7 @@ public abstract class AutoPlayViewHolder extends RecyclerView.ViewHolder impleme
 
     private WrapContentViewPager viewPager;
     private Container mContainer;
+
     public ExoPlayerViewHelper helper;
 
     private int oldPagePosition;
