@@ -25,15 +25,13 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
 
-    configurations.all {exclude group: 'com.android.support', module: 'support-v4'}
-
     implementation "com.android.support:appcompat-v7:${support_lib}"
     implementation "com.android.support:design:${support_lib}"
 
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation "com.jakewharton:butterknife:${butterknife_lib}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_lib}"
 
-    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    implementation "jp.wasabeef:glide-transformations:${glide_lib}"
 
     implementation "com.google.android.exoplayer:exoplayer-core:${exo_player_lib}"
     implementation "com.google.android.exoplayer:exoplayer-ui:${exo_player_lib}"
@@ -41,6 +39,17 @@ dependencies {
     implementation "im.ene.toro3:toro:${toro_lib}"
     implementation "im.ene.toro3:toro-ext-exoplayer:${toro_lib}"
 
-    implementation 'com.faendir:acra:4.10.0'
+    configurations.all {
+        exclude group: 'com.android.support', module: 'support-v4'
+
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "${support_lib}"
+                }
+            }
+        }
+    }
 
 }

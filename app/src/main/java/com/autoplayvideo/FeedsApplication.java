@@ -6,11 +6,6 @@ import android.content.Context;
 import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
 import com.google.android.exoplayer2.upstream.cache.SimpleCache;
 
-import org.acra.ACRA;
-import org.acra.ReportField;
-import org.acra.ReportingInteractionMode;
-import org.acra.annotation.ReportsCrashes;
-
 import java.io.File;
 
 import im.ene.toro.exoplayer.Config;
@@ -22,16 +17,7 @@ import im.ene.toro.exoplayer.ToroExo;
  * on 11/1/19.
  */
 
-@ReportsCrashes(formUri = "",
-        mailTo = "navjot.singh@appinventiv.com",
-        mode = ReportingInteractionMode.TOAST,
-        resToastText = R.string.app_name,
-        customReportContent = {
-                ReportField.ANDROID_VERSION,
-                ReportField.PHONE_MODEL,
-                ReportField.BRAND,
-                ReportField.STACK_TRACE,
-        })
+
 public class FeedsApplication extends Application {
 
     private static FeedsApplication instance;
@@ -42,8 +28,6 @@ public class FeedsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-
-        ACRA.init(this);
 
         // Initializing toro3 lib
         toroInit();

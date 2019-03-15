@@ -24,7 +24,9 @@ ext{
     compileSdk = 28
     targetSdk = 28
     minSdk = 21
-    support_lib = "28.0.0"
+    support_lib = '28.0.0'
+    butterknife_lib = '8.8.1'
+    glide_lib = '2.0.1'
     exo_player_lib = '2.8.4'
     toro_lib = '3.6.2.2804'
 }

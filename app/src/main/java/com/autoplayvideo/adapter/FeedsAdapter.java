@@ -309,7 +309,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedsViewHol
                 // play new video in viewPager
                 if (feedsEntity.getPostMedia().get(position).getPostType() != FeedsConstant.FEED_TYPE_IMAGE) {
                     /*
-                     * It's not optimised but a workaround to overcome disadvantage to toro lib container
+                     * It's not optimised but a workaround to overcome disadvantage to toro3 lib container
                      * to support multiple video playing in a row in viewPager
                      * first release the helper for video for previous page,
                      * then init new helper for video for current page

@@ -203,6 +203,7 @@ public class AutoFeedsAdapter extends RecyclerView.Adapter<AutoFeedsAdapter.Auto
                 ProgressBar progressBar = view.findViewById(R.id.pb_loader);
                 progressBar.setVisibility(View.GONE);
             }
+//            listener.setUpHelper(helper, getAdapterPosition());
         }
 
 
@@ -216,12 +217,14 @@ public class AutoFeedsAdapter extends RecyclerView.Adapter<AutoFeedsAdapter.Auto
                 if (progressBar != null)
                     progressBar.setVisibility(View.VISIBLE);
             }
+//            listener.setUpHelper(helper, getAdapterPosition());
         }
 
 
         @Override
         public void release() {
             super.release();
+//            listener.setUpHelper(helper, getAdapterPosition());
         }
 
 
